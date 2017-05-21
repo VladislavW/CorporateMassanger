@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html style="height:100%">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corporate Messenger | Авторизация</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/lib/materialize/js/materialize.min.js"></script>
+    <link href="~/lib/materialize/css/materialize.css" rel="stylesheet" />
+
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    <base href="/">
+    <!-- Polyfill(s) for older browsers -->
+    <script src="/node_modules/core-js/client/shim.min.js"></script>
+    <script src="/node_modules/zone.js/dist/zone.js"></script>
+    <script src="/node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+    <!-- 2. Configure SystemJS -->
+    <script src="~/systemjs.config.js"></script>
+    <script>
+        System.import('app').catch(function (err) {
+            console.error(err);
+        });
+    </script>
+</head>
+<body style="background-image: url(../../images/crossBG.png);height:100%">
+    <div class="container body-content" style="height:88%">
+        <div class="container text-center">
+            <app>
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+            </app>
+        </div>
+
+    </div>
+    <footer style="clear: both;">
+        <div class="container center">
+            <a href="/" title="Acropolium. Web Development Company."><img src="../../images/AcropoliumLogo-162.png" alt=""></a>
+            <p class="copy">All Rights Reserved. All Graphics is property of Acropolium Studio.<br>© 2007-2017</p>
+        </div>
+    </footer>
+</body>
+</html>
