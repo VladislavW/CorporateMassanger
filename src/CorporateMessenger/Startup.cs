@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -13,6 +10,7 @@ using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using CorporateMassenger.Data;
 
 namespace CorporateMessenger
 {
@@ -56,7 +54,7 @@ namespace CorporateMessenger
             app.UseDeveloperExceptionPage();
 
             app.UseStaticFiles();
-
+   
 
             app.UseFileServer(new FileServerOptions()
             {
@@ -68,14 +66,14 @@ namespace CorporateMessenger
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationScheme = "Cookies",
-                LoginPath = new PathString("/Account/Login"),
+                LoginPath = new PathString("/Singin/Index"),
                 AutomaticAuthenticate = true,
                 AutomaticChallenge = true
             });
             app.UseGoogleAuthentication(new GoogleOptions
             {
-                ClientId = "876010661880-jh0kuqjil9t5k6ks29db0n17vu5k5pbf.apps.googleusercontent.com",
-                ClientSecret = "WlpMi71-IYHoV23MawM7MbLE",
+                ClientId = "815966292218-2s5a27ss6iej414vcmtvfbnii9idmm7i.apps.googleusercontent.com",
+                ClientSecret = "-HmgT9i8vIhrXVFeEl8h6Kt1",
                 CallbackPath = new PathString("/GoogleLoginCallback"),
                 SignInScheme = "Cookies"
             });
@@ -89,7 +87,7 @@ namespace CorporateMessenger
                 routes.MapRoute(
                           name: "default",
                           template: "{*url}",
-                          defaults: new { controller = "Home", action = "Index" });
+                          defaults: new { controller = "Massanger", action = "Index" });
 
                 routes.MapRoute(
                            name: "fallback",

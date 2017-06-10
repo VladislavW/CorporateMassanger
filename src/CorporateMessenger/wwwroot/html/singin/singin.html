@@ -1,0 +1,51 @@
+﻿<div class="row">
+    <div class="col s12 center" style="margin-left: 18px;margin-top:25px;margin-bottom:15px;">
+        <a href="/" title="Acropolium. Web Development Company."> <img src="../../images/AcropoliumLogo-272.png" /></a>
+    </div>
+    <div class="card-content center">
+        <h5 style="color:#31C8E3; font-family: 'PT Sans Narrow', sans-serif; text-transform: uppercase;font-size: 19px;">
+            ACROPOLIUM EMPLOYE CV
+        </h5>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col s12 m15">
+        <div class="card">
+            <div class="container">
+                <div class="card-panel red lighten-5" *ngIf="errorMesage" style="margin-top:10px;">
+                    {{exep}}
+                </div>
+            </div>
+            <div class="card-content center" style="font-family: 'PT Sans Narrow', sans-serif;">
+                <h5 style="color:#31C8E3">Авторизация через Google+</h5>
+            </div>
+            <div class="card-content center ">
+                <div class="row">
+                    <div class="input-field col s10 " style="margin-left: 6%;">
+                        <button class="btn waves-effect waves-light " type="submit" name="action" (click)="addUser()" *ngIf="!log">
+                            Войти
+                            <!--<i class="material-icons right">input</i>-->
+                            <i class="fa fa-google-plus" aria-hidden="true"></i>
+                        </button>
+                        <div class="preloader-wrapper small active" *ngIf="log">
+                            <div class="spinner-layer spinner-blue-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div><div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div><div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

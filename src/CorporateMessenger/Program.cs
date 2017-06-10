@@ -23,7 +23,7 @@ namespace CorporateMessenger
                  {
                      options.UseHttps("test.pfx", "221995");
                  })
-                .UseUrls("http://localhost:5000", "https://localhost:5001")
+                .UseUrls("http://localhost:5000", "https://localhost:5002")
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()

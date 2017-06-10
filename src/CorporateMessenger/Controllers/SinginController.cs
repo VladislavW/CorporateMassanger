@@ -2,27 +2,18 @@
 using System.Security.Claims;
 
 //если юзер авторизирован возвращает базовую страницу авторизированого пользователя
-namespace CVAcropolium.Controllers
+namespace CorporateMessenger.Controllers
 {
 
     [RequireHttps]
-    [Route("account/login")]
+    [Route("singin/index")]
     public class SinginController : Controller
     {
         public IActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
             {
-                string role = User.FindFirst(x => x.Type == ClaimsIdentity.DefaultRoleClaimType).Value;
-                if (role == "admin" || role == "user")
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    return RedirectToAction("Result", "Confirm");
-                }
-
+                return RedirectToAction("Index", "Home");
             }
             else
             {

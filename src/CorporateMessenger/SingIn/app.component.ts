@@ -3,18 +3,30 @@ import { ApiService } from './app.service';
 
 @Component({
     selector: 'app',
-    template: `
-   <login></login>
-
-`,
+    templateUrl: './html/singin/singin.html',
     providers: [ApiService]
 })
 export class AppComponent {
     Users: Array<any>;
 
+    email: String;
+    password: string;
+    errorMesage: Boolean;
+    log: Boolean;
 
-    constructor(private apiService: ApiService) {}
+    exep: String;
+
+    constructor(private apiService: ApiService) {
+        this.log = false;
+        this.errorMesage = false;
+
+    }
+
+    addUser() {
+        var user = {
+            email: "Google"
+        }
+        this.apiService.addUserGoogle(user);
+
+    }
 }
-//<li *ngFor="let user of Users" > {{user.email }}
-      
-//</li><login></login>

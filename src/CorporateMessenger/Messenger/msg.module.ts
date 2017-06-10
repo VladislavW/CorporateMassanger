@@ -1,6 +1,6 @@
 ﻿import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
+import { MsgComponent } from './msg.component';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
         imports: [BrowserModule, HttpModule, JsonpModule, FormsModule],
-        declarations: [AppComponent],
-    bootstrap: [AppComponent]
+        declarations: [MsgComponent],
+        bootstrap: [MsgComponent]
 })
-export class AppModule { }
+export class MsgModule { }

@@ -10,8 +10,8 @@
         // map tells the System loader where to look for things
         map: {
             // our app is within the app folder
-            app: 'LoginApp',
-            auth: 'AuthUserApp',
+            app: 'SingIn',
+            msg: 'AuthUserApp',
             conf: 'ConfirmPass',
             // angular bundles
             '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
@@ -63,7 +63,7 @@
                 main: './main.js',
                 defaultExtension: 'js'
             },
-            auth: {
+            msg: {
                 main: './main.js',
                 defaultExtension: 'js'
             },
