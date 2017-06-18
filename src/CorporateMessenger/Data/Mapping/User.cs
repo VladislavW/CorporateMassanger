@@ -12,11 +12,14 @@ namespace CorporateMassenger.Data.Mapping
         public string Fullname { get; set; }
         public string Phone { get; set; }
         public string Photo { get; set; }
+
         public Groups Groups { get; set; }
-        public List<UserMassage> UserMassageList { get; set; }
+        public Role Role { get; set; }
+
+        public List<UserMessage> UserMassageList { get; set; }
         public User()
         {
-            UserMassageList = new List<UserMassage>();
+            UserMassageList = new List<UserMessage>();
         }
 
 

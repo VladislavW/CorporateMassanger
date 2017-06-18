@@ -3,8 +3,9 @@ using System.Threading.Tasks;
 
 namespace CorporateMessenger.Data.Interfaces
 {
-    internal interface IUserRepositoty : IRepository<User>
+    internal interface IUserRepository : IRepository<User>
     {
         Task<User> GetUserByEmailAsync(string email);
+        Task<User> GetUserWithRoleByEmailAsync(string email);
     }
 }

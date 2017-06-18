@@ -6,7 +6,7 @@ namespace CorporateMessenger.Controllers
 
     [RequireHttps]
 
-    public class MassangerController : Controller
+    public class MessangerController : Controller
     {
         [Authorize(Roles = "admin, user")]
         public IActionResult Index()

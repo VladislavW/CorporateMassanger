@@ -8,10 +8,10 @@ using CorporateMassenger.Data;
 
 namespace CorporateMessenger.Data.Repository
 {
-    internal sealed class MassageRepositoty : Repository<Massage>, IMassageRepositoty
+    internal sealed class MessageRepository : Repository<Message>, IMessageRepository
     {
         protected readonly ApplicationContext _context;
-        public MassageRepositoty(ApplicationContext context) : base(context)
+        public MessageRepository(ApplicationContext context) : base(context)
         {
             _context = context;
         }

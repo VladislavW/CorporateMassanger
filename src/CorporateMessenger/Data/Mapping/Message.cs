@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace CorporateMessenger.Data.Mapping
 {
-    public sealed class Massage : BaseEntity<int>
+    public sealed class Message : BaseEntity<int>
     {
         public string TextMassage { get; set; }
-        public List<UserMassage> UserMassageList { get; set; }
-        public Massage()
+        public List<UserMessage> UserMassageList { get; set; }
+        public Message()
         {
-            UserMassageList = new List<UserMassage>();
+            UserMassageList = new List<UserMessage>();
         }
 
     }

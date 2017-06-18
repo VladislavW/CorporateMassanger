@@ -12,6 +12,10 @@ namespace CorporateMessenger.Data.Interfaces
         void Add(T entyty);
         void Remove(T entity);
 
+        Task<List<T>> GetAll();
+
         IQueryable<T> Source { get; }
+
+        void SaveChanges();
     }
 }

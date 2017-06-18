@@ -8,10 +8,10 @@ using CorporateMassenger.Data;
 
 namespace CorporateMessenger.Data.Repository
 {
-    internal sealed class GroupRepositoty : Repository<Groups>, IGroupRepositoty
+    internal sealed class GroupRepository : Repository<Groups>, IGroupRepository
     {
         protected readonly ApplicationContext _context;
-        public GroupRepositoty(ApplicationContext context) : base(context)
+        public GroupRepository(ApplicationContext context) : base(context)
         {
             _context = context;
         }

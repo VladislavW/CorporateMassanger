@@ -11,12 +11,15 @@ namespace CorporateMessenger.Services
 {
     internal sealed class SingInWithGoogleService : ISingInWithGoogleService
     {
-        private readonly IUserRepositoty _userRepositoty;
+        private readonly IUserRepository _userRepositoty;
+        private readonly IRoleRepository _roleRepositoty;
 
         public SingInWithGoogleService(
-             IUserRepositoty userRepositoty)
+             IUserRepository userRepositoty,
+             IRoleRepository roleRepositoty)
         {
             _userRepositoty = userRepositoty;
+            _roleRepositoty = roleRepositoty;
         }
 
         public async Task<ClaimsIdentity> AuthenticateAsync(User user)
@@ -24,7 +27,8 @@ namespace CorporateMessenger.Services
             // создаем один claim
             var claims = new List<Claim>
             {
-                  new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email)
+                  new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email),
+                  new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role?.Name)
 
             };
             // создаем объект ClaimsIdentity
@@ -35,12 +39,17 @@ namespace CorporateMessenger.Services
 
         public async Task<User> GoogleLoginCallbackAsync(string email)
         {
-            User userdb = await _userRepositoty.GetUserByEmailAsync(email);
+            User userdb = await _userRepositoty.GetUserWithRoleByEmailAsync(email);
 
             if (userdb == null)
             {
-                User user = new User { Email = email };
+                var role = await _roleRepositoty.GetUserRoleByRoleNameAsync("user");
+
+                User user = new User { Email = email, Role = role};
+
                 _userRepositoty.Add(user);
+                _userRepositoty.SaveChanges();
+
                  return user;
             } else  {
                 return userdb;

@@ -36,5 +36,15 @@ namespace CorporateMessenger.Data.Repository
         {
             _context.Set<TEntity>().Remove(entity);
         }
+
+        public async Task<List<TEntity>> GetAll()
+        {
+            return await _context.Set<TEntity>().ToListAsync();
+        }
+
+        public async void SaveChanges()
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }
