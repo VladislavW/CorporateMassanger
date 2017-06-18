@@ -8,6 +8,9 @@ using System.Security.Claims;
 using CorporateMassenger.Data;
 using CorporateMessenger.Services.Interfaces;
 using CorporateMessenger.ViewModel;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,13 +20,16 @@ namespace CorporateMessenger.Controllers
     {
         private readonly ApplicationContext _context;
         private readonly IUserService _userService;
+        private readonly IHostingEnvironment _appEnvironment;
 
         public MessangerPageController(
              ApplicationContext context,
-             IUserService userService)
+             IUserService userService,
+             IHostingEnvironment appEnvironment)
         {
             _context = context;
             _userService = userService;
+            _appEnvironment = appEnvironment;
 
         }
 
@@ -60,6 +66,20 @@ namespace CorporateMessenger.Controllers
 
             return Json(userViewModel);
 
+        }
+        [HttpPost]
+        [Route("user/addphotopath")]
+        public async Task<JsonResult> AddPhtoPath(IFormFileCollection file)
+        {
+            if (file.Count != 0)
+            {
+                var path = await _userService.UploadPfoto(file, _appEnvironment);
+                return Json(path);
+            }
+            else
+            {
+                return Json(404);
+            }
         }
 
 

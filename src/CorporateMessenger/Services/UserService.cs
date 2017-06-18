@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using CorporateMassenger.Data.Mapping;
 using CorporateMessenger.Data.Interfaces;
 using CorporateMessenger.ViewModel;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace CorporateMessenger.Services
 {
@@ -42,6 +45,16 @@ namespace CorporateMessenger.Services
             _userRepositoty.Update(user);
             _userRepositoty.SaveChanges();
 
+        }
+
+        public async Task<string> UploadPfoto(IFormFileCollection file, IHostingEnvironment appEnvironment)
+        {
+            string path = "/images/userPhoto/" + file[0].FileName;
+            using (var fileStream = new FileStream(appEnvironment.WebRootPath + path, FileMode.Create))
+            {
+                await file[0].CopyToAsync(fileStream);
+            }
+            return path;
         }
     }
 }
