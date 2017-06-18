@@ -1,4 +1,5 @@
 ﻿using CorporateMassenger.Data.Mapping;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace CorporateMessenger.Data.Interfaces
@@ -7,5 +8,6 @@ namespace CorporateMessenger.Data.Interfaces
     {
         Task<User> GetUserByEmailAsync(string email);
         Task<User> GetUserWithRoleByEmailAsync(string email);
+        Task<List<User>> GetUsersByGroupAsync(string groupName);
     }
 }

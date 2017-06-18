@@ -25,6 +25,10 @@ namespace CorporateMessenger.Data.Repository
         {
              _context.Set<TEntity>().Add(entyty);
         }
+        public void Update(TEntity entyty)
+        {
+            _context.Set<TEntity>().Update(entyty);
+        }
 
         public async Task<TEntity> FindAsync(int id)
         {

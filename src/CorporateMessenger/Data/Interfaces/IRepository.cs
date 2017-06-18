@@ -11,6 +11,7 @@ namespace CorporateMessenger.Data.Interfaces
         Task<T> FindAsync(int id);
         void Add(T entyty);
         void Remove(T entity);
+        void Update(T entyty);
 
         Task<List<T>> GetAll();
 

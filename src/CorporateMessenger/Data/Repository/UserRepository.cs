@@ -22,6 +22,13 @@ namespace CorporateMessenger.Data.Repository
                      .FirstOrDefaultAsync(u => u.Email == email);
         }
 
+       
+        public async Task<List<User>> GetUsersByGroupAsync(string groupName)
+        {
+            return await Source
+                    .Where(item=> item.Groups.GroupName == groupName)
+                    .ToListAsync();
+        }
 
         public async Task<User> GetUserWithRoleByEmailAsync(string email)
         {

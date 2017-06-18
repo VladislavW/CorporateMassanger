@@ -48,6 +48,19 @@ namespace CorporateMessenger.Controllers
             return Json(userViewModel);
 
         }
+        [HttpPut]
+        [Route("user/updatecurrentuser")]
+        public async Task<JsonResult> UpdateCurretUser([FromBody] UserViewModel userViewModel)
+        {
+            string email = User.FindFirst(x => x.Type == ClaimsIdentity.DefaultNameClaimType).Value;
+
+            var user = await _userService.GetCurrentUserByClimeEmeil(email);
+
+            _userService.UpdateUserInfo(userViewModel, user.Id);
+
+            return Json(userViewModel);
+
+        }
 
 
         [HttpGet]
